@@ -18,7 +18,7 @@ app.get('/api', function (req, res) {
   
 
   // Invoke service
-  request('http://WebAPI', function (error, response, body) {
+  request('http://web-api', function (error, response, body) {
       if(error) console.log(error);
       res.send('Hello from service A running on ' + os.hostname() + ' and ' + body);
       console.log('Hello from service A running on ' + os.hostname() + ' and ' + body);
