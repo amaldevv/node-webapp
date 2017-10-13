@@ -31,7 +31,7 @@ spec:
         app: demo
     spec:
       containers:
-      - name: service-b
+      - name: web-api
         image: $ACR_DNS/web-api:$BUILD_ID
         ports:
         - containerPort: 80
