@@ -8,11 +8,14 @@ const HOST = '0.0.0.0';
 
 // App
 const app = express();
-app.get('/', (req, res) => {
-  res.send('Hello world\n');
+
+app.use(express.static("public"));
+
+app.get('/index', (req, res) => {
+  res.send(__dirname + "/" + "index.html");
 });
 // api ------------------------------------------------------------
-app.get('/api', function (req, res) {
+app.get('/api/getMessage', function (req, res) {
   
 
   
@@ -20,8 +23,8 @@ app.get('/api', function (req, res) {
   // Invoke service
   request('http://web-api:9900', function (error, response, body) {
       if(error) console.log(error);
-      res.send('Hello from service A running on ' + os.hostname() + ' and ' + body);
-      console.log('Hello from service A running on ' + os.hostname() + ' and ' + body);
+      res.send('Hello from WebAPI running on ' + os.hostname() + ' and ' + body);
+      console.log('Hello from WebAPI running on ' + os.hostname() + ' and ' + body);
   });
 }); 
 
