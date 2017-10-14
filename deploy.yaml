@@ -10,7 +10,7 @@ spec:
   - name: node-webapp
     image: $ACR_DNS/node-webapp:$BUILD_ID
     ports:
-    - containerPort: 80
+    - containerPort: 8080
       protocol: TCP
 ---
 apiVersion: apps/v1beta1
@@ -34,7 +34,7 @@ spec:
       - name: web-api
         image: $ACR_DNS/web-api:$BUILD_ID
         ports:
-        - containerPort: 80
+        - containerPort: 9900
           protocol: TCP
 ---
 
@@ -48,8 +48,8 @@ metadata:
 spec:
   ports:
     # the port that this service should serve on
-    - port: 80
-      targetPort: 80
+    - port: 8080
+      targetPort: 8080
       protocol: TCP
       name: http
   # label keys and values that must match in order to receive traffic for this service
@@ -68,8 +68,8 @@ metadata:
 spec:
   ports:
     # the port that this service should serve on
-    - port: 80
-      targetPort: 80
+    - port: 9900
+      targetPort: 9900
       protocol: TCP
       name: http
   # label keys and values that must match in order to receive traffic for this service

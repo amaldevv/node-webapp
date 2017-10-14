@@ -1,10 +1,10 @@
-FROM microsoft/dotnet:2.0.0-runtime
+FROM microsoft/aspnetcore
 
+ENV ASPNETCORE_URLS = "http://*:9900"
 
-
-EXPOSE 80
+EXPOSE 9900
 
 WORKDIR /app
-COPY ./bin .
+COPY ./publish .
 
 CMD ["dotnet", "WebAPI.dll"]
