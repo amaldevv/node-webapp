@@ -38,7 +38,7 @@ namespace WebAPI
             app.UseMvc();
             app.Run(async context =>
             {
-                await context.Response.WriteAsync("Hello from service B running on " + Environment.MachineName);
+                await context.Response.WriteAsync("Hello from WebAPI running on " + Environment.MachineName);
             });
         }
     }

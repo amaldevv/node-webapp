@@ -15,7 +15,7 @@
     function getStyles(message)
     {
         if (!styles[message]) {
-            styles[message] = {'color': colors[colorIndex]};
+            styles[message] = 'color:' + colors[colorIndex];
             colorIndex = colorIndex < colors.length - 1 ? colorIndex + 1 : 0;
         }
         return styles[message];
