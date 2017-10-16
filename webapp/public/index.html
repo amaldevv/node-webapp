@@ -4,7 +4,8 @@
             <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     </head>
 <body>
-    <div><button id="btnSubmit" type="button">Get Message</button></div>
+    <div><button id="btnSubmit" class="button-class" type="button">Get Message</button></div>
+    <div><button id="btnClear" class="button-class" style="margin-left:150px" type="button">Clear</button></div>
     <div id="divContent"></div>
 
 </body>
@@ -24,8 +25,19 @@
         $("#btnSubmit").on("click", function(){
             $.ajax({url:"/api/getMessage", success: function(result){
                 $("#divContent").append("<br><span style='" + getStyles(result) + "'>" + result + "</span>");
+                $('html, body').scrollTop( $(document).height() );
             }});
+            
         });
+        
+        $("#btnClear").on("click", function(){  $("#divContent").html('');});
     });
 </script>
+<style>
+    .button-class{
+        position: fixed;
+        top: 1px;
+        left: 10px;
+    }
+</style>
 </html>
